@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --primary-color: #ff4d6d;
+  --secondary-color: #ff8fa3;
+  --bg-gradient: linear-gradient(135deg, #ffe6e6 0%, #ffcdcd 100%);
+  --text-color: #590d22;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  /* Remove tap highlight on mobile */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Prevent scroll on mobile */
+  position: fixed;
+  width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+}
+
+button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  user-select: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Floating Hearts Animation */
+.heart {
+  position: absolute;
+  color: #ffb3c1;
+  opacity: 0.6;
+  font-size: 2rem;
+  user-select: none;
+  pointer-events: none;
+  animation: float 15s linear infinite;
+  z-index: -1;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Snow Animation */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: fall linear infinite;
+  z-index: 100;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+  }
+
+  100% {
+    transform: translateY(110vh) translateX(20px);
+  }
+}
+
+/* Responsive Classes */
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.collage-container {
+  position: relative;
+  margin-bottom: 50px;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.question-text {
+  font-size: 3.5rem;
+  margin-bottom: 40px;
+  color: #590d22;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+  line-height: 1.2;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 80px;
+  width: 100%;
+}
+
+.btn-yes,
+.btn-no {
+  padding: 20px 60px;
+  font-size: 1.5rem;
+  z-index: 20;
+}
+
+.btn-yes {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+}
+
+.btn-no {
+  background-color: #e9ecef;
+  color: #495057;
+  z-index: 10;
+}
+
+/* Success View */
+.success-title {
+  font-size: 4rem;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.success-img {
+  border-radius: 15px;
+  max-width: 350px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 5px solid white;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .collage-container {
+    transform: scale(0.65);
+    margin-bottom: 20px;
+    margin-top: -20px;
+    /* Pull it up a bit */
+  }
+
+  .question-text {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+
+  .buttons-container {
+    gap: 15px;
+    /* On mobile, keep side by side if possible, or stack if really small. 
+       Side by side is better for the "chase" effect. */
+  }
+
+  .btn-yes,
+  .btn-no {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+  }
+
+  .success-title {
+    font-size: 2.5rem;
+  }
+
+  .success-img {
+    max-width: 80vw;
+  }
+}
