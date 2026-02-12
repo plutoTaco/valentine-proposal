@@ -109,12 +109,12 @@ function App() {
 
   const moveNoButton = () => {
     // Logic to keep button within viewport
-    const btnWidth = 100; // approx
-    const btnHeight = 50; // approx
+    // const btnWidth = 100; // approx
+    // const btnHeight = 50; // approx
 
     // Get viewport dimensions
-    const maxWidth = window.innerWidth - btnWidth - 40; // padding
-    const maxHeight = window.innerHeight - btnHeight - 40;
+    // const maxWidth = window.innerWidth - btnWidth - 40; // padding
+    // const maxHeight = window.innerHeight - btnHeight - 40;
 
     // Generate random position relative to valid area, centered roughly
     // We actually want a translation from its original position (0,0 in the flex container)
